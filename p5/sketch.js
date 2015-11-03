@@ -1,9 +1,10 @@
 var system;
-
+var song;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
     system = new ParticleSystem(createVector(width/2, height/2));
+    song = loadSound("kaschmirgithubio/Supercool.m4a");
 }
 
 function draw() {
@@ -46,6 +47,11 @@ background(205,240,255);
     strokeWeight(10);
     quad(width/2,200,width*0.4,height/2,width/2,400,width*0.6,height/2);
     
+    stroke("cyan");
+    fill(240,255,240);
+    strokeWeight(1);
+    quad(width/2,300,width*0.41,height/2,width/2,400,width*0.59,height/2);
+    
     textSize(32);
         text("love", 700, 300);
         fill(0, 102, 153);
@@ -69,8 +75,8 @@ background(205,240,255);
 
 // A simple Particle class
 var Particle = function(position) {
-  this.acceleration = createVector(0, 0.3);
-  this.velocity = createVector(random(0.9, -0.8), random(-1, -1));
+  this.acceleration = createVector(0, 0.1);
+  this.velocity = createVector(random(0.9, -0.8), random(-10, -10));
   this.position = position.copy();
   this.lifespan = 255.0;
 };
