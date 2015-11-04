@@ -1,14 +1,17 @@
 var system;
 var song;
+var xpos = -150;
+var speed = 2;
 
 function preload() {
-  song = loadSound("eastwood_lawyers.wav");
+  song = loadSound("Supercool.m4a");
 }
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
     system = new ParticleSystem(createVector(width/2, height/2));
     song.play();
+    song.loop();
 }
 
 function draw() {
@@ -42,7 +45,7 @@ background(205,240,255);
     line(width,0,0,height);
     
     strokeWeight(100);
-    stroke("pink");
+    stroke(159,200,255);
     line(0,0,width,height);
     line(width,0,0,height);
     
@@ -56,25 +59,51 @@ background(205,240,255);
     strokeWeight(1);
     quad(width/2,300,width*0.41,height/2,width/2,400,width*0.59,height/2);
     
+    stroke("cyan");
+    fill(240,255,240);
+    strokeWeight(1);
+    
     textSize(32);
         text("love", 700, 300);
         fill(0, 102, 153);
-        text("peace", 346, 60);
+        push();
+        angleMode(DEGREES);
+        rotate(30);
+    textSize(80);
+        textFont('Pacifico');
+        text("peace", 346, -100);
+        pop();
         fill(0, 102, 153, 51);
     textSize(60);
         text("hope", 100, width/2);
-
+push();
+    system.addParticle();
+    system.run();
+pop();
     textSize(32);
         text("<3", 700, 450);
         fill(0, 102, 153);
-        text("<3", width/2, 400);
+    textSize(95);
+        
+        push();
+        if(xpos > width)
+        {
+        xpos = -150;
+        }
+        xpos = xpos + speed;
+        text("Y-3", xpos, 400);
+        pop();
+        
+        
         fill(0, 102, 153, 51);
     textSize(60);
-        text("hope", 120, width/2);
+        text("hope", 120, width*0.52);
+    textSize(10);
+        text("frieden", 500, 300);
+        fill(230,30,250,150);
+        text("frieden", 500, 320);
         
     
-    system.addParticle();
-    system.run();
 }
 
 // A simple Particle class
