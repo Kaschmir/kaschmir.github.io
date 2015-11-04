@@ -1,10 +1,14 @@
 var system;
 var song;
 
+function preload() {
+  song = loadSound("eastwood_lawyers.wav");
+}
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
     system = new ParticleSystem(createVector(width/2, height/2));
-    song = loadSound("kaschmirgithubio/Supercool.m4a");
+    song.play();
 }
 
 function draw() {
