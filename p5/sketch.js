@@ -2,6 +2,7 @@ var system;
 var song;
 var xpos = -150;
 var speed = 2;
+var img;
 
 function preload() {
   song = loadSound("Supercool.m4a");
@@ -9,6 +10,7 @@ function preload() {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    img = loadImage("mitte.png");
     system = new ParticleSystem(createVector(width/2, height/2));
     song.play();
     song.loop();
@@ -102,6 +104,8 @@ pop();
         text("frieden", 500, 300);
         fill(230,30,250,150);
         text("frieden", 500, 320);
+        
+        image(img, 0, 0);
         
     
 }
