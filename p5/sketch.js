@@ -2,7 +2,6 @@ var system;
 var song;
 var xpos = -150;
 var speed = 2;
-var img;
 
 function preload() {
   song = loadSound("Supercool.m4a");
@@ -10,10 +9,10 @@ function preload() {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    img = loadImage("mitte.png");
     system = new ParticleSystem(createVector(width/2, height/2));
     song.play();
     song.loop();
+  
 }
 
 function draw() {
@@ -105,8 +104,24 @@ pop();
         fill(230,30,250,150);
         text("frieden", 500, 320);
         
-        image(img, 0, 0);
+    textSize(100);    
+        noFill();
+        stroke("pink");
+        strokeWeight(2);
+        textFont('Pacifico');
+        text("sublime", width*0.7, 300);
         
+        
+        
+    console.log(key);
+    if(key == "M") 
+    {
+      song.setVolume(0.0);
+    }  
+    else 
+    {
+      song.setVolume(1.0);
+    }
     
 }
 
