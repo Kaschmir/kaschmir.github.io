@@ -10,7 +10,7 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     system = new ParticleSystem(createVector(width/2, height/2));
-    song.play();
+    //song.play();
     song.loop();
   
 }
