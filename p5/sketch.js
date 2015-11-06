@@ -4,7 +4,7 @@ var xpos = -150;
 var speed = 2;
 
 function preload() {
-  song = loadSound("Supercool.m4a");
+  song = loadSound("Terra.mp3");
 }
 
 function setup() {
@@ -19,6 +19,8 @@ function draw() {
 	// place your drawing code here
 
 background(205,240,255);
+    
+var y3height = Math.random()*100;
     
     strokeWeight(500);
     stroke("pink");
@@ -51,12 +53,12 @@ background(205,240,255);
     line(width,0,0,height);
     
     stroke("cyan");
-    fill(255,255,255);
+    fill(230,255,255);
     strokeWeight(10);
     quad(width/2,200,width*0.4,height/2,width/2,400,width*0.6,height/2);
     
     stroke("cyan");
-    fill(240,255,240);
+    fill(240,255,250);
     strokeWeight(1);
     quad(width/2,300,width*0.41,height/2,width/2,400,width*0.59,height/2);
     
