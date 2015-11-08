@@ -2,13 +2,15 @@ var system;
 var song;
 var xpos = -150;
 var speed = 2;
-var message = "Sublime",
-    bounds, // holds x, y, w, h of the text's bounding box
-    fontsize = 100,
-    x, y; // x and y coordinates of the text
+var message = "tickle",
+  font,
+  bounds, // holds x, y, w, h of the text's bounding box
+  fontsize = 60,
+  x, y; // x and y coordinates of the text
 
 function preload() {
-  song = loadSound("Terra.mp3");
+  song = loadSound("Terra.wav");
+  font = loadFont('assets/LeagueGothic-Regular.otf');
 }
 
 function setup() {
@@ -16,6 +18,9 @@ function setup() {
     system = new ParticleSystem(createVector(width/2, height/2));
     //song.play();
     song.loop();
+    textFont(font);
+    textSize(fontsize);
+      
     bounds = font.textBounds(message, 0, 0, fontsize);
     x = width / 2 - bounds.w / 2;
     y = height / 2 - bounds.h / 2;
@@ -119,11 +124,23 @@ pop();
         strokeWeight(2);
         textFont('Pacifico');
         text("sublime", width*0.7, 300);
+      
       push();
-        text(message, x, y);
-        bounds = font.textBounds(message,x,y,fontsize);
-        
-      pop();
+
+  fill(204, 120);
+  rect(0, 0, width, height);
+  fill(0);
+  text(message, x, y);
+  bounds = font.textBounds(message,x,y,fontsize);
+  
+  if ( mouseX >= bounds.x && mouseX <= bounds.x + bounds.w &&
+    mouseY >= bounds.y && mouseY <= bounds.y + bounds.h) {
+    x += random(-5, 5);
+    y += random(-5, 5);
+  }
+     
+      pop()
+      
         
     console.log(key);
     if(key == "M") 
