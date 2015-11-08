@@ -9,7 +9,7 @@ var message = "tickle",
   x, y; // x and y coordinates of the text
 
 function preload() {
-  song = loadSound("Terra.wav");
+  song = loadSound("terra.wav");
   font = loadFont('assets/LeagueGothic-Regular.otf');
 }
 
