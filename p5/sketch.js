@@ -2,6 +2,10 @@ var system;
 var song;
 var xpos = -150;
 var speed = 2;
+var message = "Sublime",
+    bounds, // holds x, y, w, h of the text's bounding box
+    fontsize = 100,
+    x, y; // x and y coordinates of the text
 
 function preload() {
   song = loadSound("Terra.mp3");
@@ -12,6 +16,9 @@ function setup() {
     system = new ParticleSystem(createVector(width/2, height/2));
     //song.play();
     song.loop();
+    bounds = font.textBounds(message, 0, 0, fontsize);
+    x = width / 2 - bounds.w / 2;
+    y = height / 2 - bounds.h / 2;
   
 }
 
@@ -112,8 +119,11 @@ pop();
         strokeWeight(2);
         textFont('Pacifico');
         text("sublime", width*0.7, 300);
+      push();
+        text(message, x, y);
+        bounds = font.textBounds(message,x,y,fontsize);
         
-        
+      pop();
         
     console.log(key);
     if(key == "M") 
