@@ -2,15 +2,11 @@ var system;
 var song;
 var xpos = -150;
 var speed = 2;
-var message = "tickle",
-  font,
-  bounds, // holds x, y, w, h of the text's bounding box
-  fontsize = 60,
-  x, y; // x and y coordinates of the text
+var sublimex = 900
+var sublimey = 300
 
 function preload() {
   song = loadSound("terra.wav");
-  font = loadFont('assets/LeagueGothic-Regular.otf');
 }
 
 function setup() {
@@ -18,12 +14,6 @@ function setup() {
     system = new ParticleSystem(createVector(width/2, height/2));
     //song.play();
     song.loop();
-    textFont(font);
-    textSize(fontsize);
-      
-    bounds = font.textBounds(message, 0, 0, fontsize);
-    x = width / 2 - bounds.w / 2;
-    y = height / 2 - bounds.h / 2;
   
 }
 
@@ -86,7 +76,8 @@ var y3height = Math.random()*100;
         rotate(30);
     textSize(80);
         textFont('Pacifico');
-        text("peace", 346, -100);
+  text("peace", 346, -100);
+
         pop();
         fill(0, 102, 153, 51);
     textSize(60);
@@ -123,23 +114,7 @@ pop();
         stroke("pink");
         strokeWeight(2);
         textFont('Pacifico');
-        text("sublime", width*0.7, 300);
-      
-      push();
-
-  fill(204, 120);
-  rect(0, 0, width, height);
-  fill(0);
-  text(message, x, y);
-  bounds = font.textBounds(message,x,y,fontsize);
-  
-  if ( mouseX >= bounds.x && mouseX <= bounds.x + bounds.w &&
-    mouseY >= bounds.y && mouseY <= bounds.y + bounds.h) {
-    x += random(-5, 5);
-    y += random(-5, 5);
-  }
-     
-      pop()
+        text("sublime", sublimex, sublimey);
       
         
     console.log(key);
