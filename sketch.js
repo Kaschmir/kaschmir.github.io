@@ -100,7 +100,6 @@ pop();
         text("Y-3", xpos, 400);
         pop();
         
-        
         fill(0, 102, 153, 51);
     textSize(60);
         text("hope", 120, width*0.52);
